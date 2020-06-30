@@ -116,21 +116,4 @@ class WxPayConfig extends WxPayConfigInterface
         $sslCertPath = self::$params['apiCert'];
         $sslKeyPath  = self::$params['apiKey'];
     }
-
-    /**
-     * 微信的 log 类与框架冲突，懒得改，统一写一个静态方法
-     * @param  [type] $msg [description]
-     * @return [type]      [description]
-     */
-    public static function log($msg, $remark = '')
-    {
-
-        $msg = var_export($msg, true) . PHP_EOL;
-        if ('' != $remark) {
-            $msg = $remark . '，' . $msg;
-        }
-
-        error_log($msg, 3, BASE_DATA_PATH . '/log/wxpay_' . date('Y-m-d') . '.log');
-        return;
-    }
 }

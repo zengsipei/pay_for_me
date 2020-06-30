@@ -672,7 +672,7 @@ class AopClient
      *  在使用本方法前，必须初始化AopClient且传入公钥参数。
      *  公钥是否是读取字符串还是读取文件，是根据初始化传入的值判断的。
      **/
-    public function rsaCheckV1($params, $rsaPublicKeyFilePath, $signType = 'RSA')
+    public function rsaCheckV1($params, $rsaPublicKeyFilePath, $signType = 'RSA2')
     {
         $sign = $params['sign'];
 
@@ -681,7 +681,7 @@ class AopClient
         return $this->verify($this->getCheckSignContent($params), $sign, $rsaPublicKeyFilePath, $signType);
     }
 
-    public function rsaCheckV2($params, $rsaPublicKeyFilePath, $signType = 'RSA')
+    public function rsaCheckV2($params, $rsaPublicKeyFilePath, $signType = 'RSA2')
     {
         $sign = $params['sign'];
 
@@ -712,7 +712,7 @@ class AopClient
         return $stringToBeSigned;
     }
 
-    function verify($data, $sign, $rsaPublicKeyFilePath, $signType = 'RSA')
+    function verify($data, $sign, $rsaPublicKeyFilePath, $signType = 'RSA2')
     {
 
         if ($this->checkEmpty($this->alipayPublicKey)) {
@@ -751,7 +751,7 @@ class AopClient
      *  在使用本方法前，必须初始化AopClient且传入公私钥参数。
      *  公钥是否是读取字符串还是读取文件，是根据初始化传入的值判断的。
      **/
-    public function checkSignAndDecrypt($params, $rsaPublicKeyPem, $rsaPrivateKeyPem, $isCheckSign, $isDecrypt, $signType = 'RSA')
+    public function checkSignAndDecrypt($params, $rsaPublicKeyPem, $rsaPrivateKeyPem, $isCheckSign, $isDecrypt, $signType = 'RSA2')
     {
         $charset = $params['charset'];
         $bizContent = $params['biz_content'];
@@ -772,7 +772,7 @@ class AopClient
      *  在使用本方法前，必须初始化AopClient且传入公私钥参数。
      *  公钥是否是读取字符串还是读取文件，是根据初始化传入的值判断的。
      **/
-    public function encryptAndSign($bizContent, $rsaPublicKeyPem, $rsaPrivateKeyPem, $charset, $isEncrypt, $isSign, $signType = 'RSA')
+    public function encryptAndSign($bizContent, $rsaPublicKeyPem, $rsaPrivateKeyPem, $charset, $isEncrypt, $isSign, $signType = 'RSA2')
     {
         // 加密，并签名
         if ($isEncrypt && $isSign) {
