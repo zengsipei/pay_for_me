@@ -1,0 +1,25 @@
+{
+    "name": "zengsipei/pay",
+    "description": "自用支付宝、微信支付扩展包",
+    "keywords": ["alipay", "wxpay", "pay"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "zengsipei",
+            "email": "zengsp.mail@qq.com"
+        }
+    ],
+    "require": {},
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+          "Zengsipei\\Pay\\": ""
+        }
+    }
+}
