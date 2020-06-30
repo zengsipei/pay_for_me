@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-          "Zengsipei\\Pay\\": "",
+          "Zengsipei\\Pay\\": ""
         },
       "files": [
         "alipay/AopEncrypt.php"
