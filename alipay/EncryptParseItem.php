@@ -9,5 +9,4 @@ class EncryptParseItem
     public $endIndex;
 
     public $encryptContent;
-
 }

@@ -2,6 +2,8 @@
 
 namespace Zengsipei\Pay\Alipay;
 
+use Exception;
+
 class AopClient
 {
     //应用ID
@@ -40,16 +42,13 @@ class AopClient
 
     private $SIGN_NODE_NAME = "sign";
 
-
     //加密XML节点名称
     private $ENCRYPT_XML_NODE_NAME = "response_encrypted";
 
     private $needEncrypt = false;
 
-
     //签名类型
-    public $signType = "RSA";
-
+    public $signType = "RSA2";
 
     //加密密钥和类型
 
@@ -61,12 +60,12 @@ class AopClient
 
     protected $alipaySdkVersion = "alipay-sdk-php-20200415";
 
-    public function generateSign($params, $signType = "RSA")
+    public function generateSign($params, $signType = "RSA2")
     {
         return $this->sign($this->getSignContent($params), $signType);
     }
 
-    public function rsaSign($params, $signType = "RSA")
+    public function rsaSign($params, $signType = "RSA2")
     {
         return $this->sign($this->getSignContent($params), $signType);
     }
@@ -122,7 +121,7 @@ class AopClient
         return $stringToBeSigned;
     }
 
-    protected function sign($data, $signType = "RSA")
+    protected function sign($data, $signType = "RSA2")
     {
         if ($this->checkEmpty($this->rsaPrivateKeyFilePath)) {
             $priKey = $this->rsaPrivateKey;
@@ -157,7 +156,7 @@ class AopClient
      * @param $keyfromfile 私钥获取方式，读取字符串还是读文件
      * @return string
      */
-    public function alonersaSign($data, $privatekey, $signType = "RSA", $keyfromfile = false)
+    public function alonersaSign($data, $privatekey, $signType = "RSA2", $keyfromfile = false)
     {
 
         if (!$keyfromfile) {
